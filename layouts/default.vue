@@ -5,8 +5,6 @@
       class="pa-0"
       color="white"
       app
-      hide-on-scroll
-      fixed
       clipped-right
       extension-height="100"
       elevation="0"
@@ -34,18 +32,19 @@
       </v-container>
     </v-main>
     <v-footer :absolute="!fixed" app color="white">
-      <v-row class="align-center mx-0 mb-2">
-        <v-col class="box" cols="12">
-          <div>
-            <span>
-              &copy; {{ new Date().getFullYear() }} -
-              <strong>holy.one |</strong>
-            </span>
-            Donate some nanos 😇 :
-            <strong>
-              nano_15heno99oc5m5zwgyacxm5m5o1ia9maxme9w5prhk18sakwnt464zjh9io5m
-            </strong>
-          </div>
+      <v-row class="align-center mx-0 mb-2 box">
+        <v-col cols="12" sm="auto">
+          <span>
+            &copy; {{ new Date().getFullYear() }} -
+            <strong>holy.one</strong>
+          </span>
+        </v-col>
+        <v-spacer />
+        <v-col cols="12" sm="auto">
+          Donate some nanos 😇 :
+          <strong>
+            nano_15heno99oc5m5zwgyacxm5m5o1ia9maxme9w5prhk18sakwnt464zjh9io5m
+          </strong>
         </v-col>
       </v-row>
     </v-footer>
@@ -97,7 +96,7 @@ export default {
 
 .box {
   background-color: lighten($primary, 15);
-  border-radius: 4px;
+  border-radius: 8px;
   strong {
     max-width: 100%;
     word-break: break-all;

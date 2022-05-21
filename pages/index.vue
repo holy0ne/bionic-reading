@@ -4,7 +4,7 @@
       <v-col cols="12" class="mb-6">
         <h1>
           <strong>Sim</strong>ple <strong>Bio</strong>nic
-          <strong>Read</strong>ing <strong>Conve</strong>rsor
+          <strong>Read</strong>ing <strong>Conve</strong>rter
         </h1>
       </v-col>
       <v-col class="col-12 col-sm-6">
@@ -29,7 +29,7 @@ export default {
   data: () => ({
     text: "",
     alphabet:
-      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúâêîôûãõàèìòùÁÉÍÓÚÂÊÎÔÛÃÕÀÈÌÒÙ",
+      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZçáéíóúâêîôûãõàèìòùÁÉÍÓÚÂÊÎÔÛÃÕÀÈÌÒÙ-",
     tags: ["<br>"],
   }),
   computed: {
@@ -84,7 +84,7 @@ h1 {
   border: 1px solid $medium;
   text-align: left;
   padding: 12px;
-  border-radius: 4px;
+  border-radius: 8px;
   height: 100%;
   min-height: 130px;
   background-color: lighten($medium, 35);
