@@ -12,7 +12,7 @@
       <v-toolbar color="transparent" flat>
         <v-toolbar-title>
           <img src="/icon.png" style="max-width: 20px" />
-          <strong>HO</strong>LY <strong>READ</strong>ING
+          <strong>BIO</strong>NIC.<strong>O</strong>NE
         </v-toolbar-title>
 
         <v-spacer></v-spacer>
@@ -41,7 +41,7 @@
         </v-col>
         <v-spacer />
         <v-col cols="12" sm="auto">
-          Donate some nanos 😇 :
+          Donate some NANO 😇 :
           <strong>
             nano_15heno99oc5m5zwgyacxm5m5o1ia9maxme9w5prhk18sakwnt464zjh9io5m
           </strong>

@@ -29,7 +29,12 @@ export default {
   data: () => ({
     text: "",
     alphabet:
-      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZçáéíóúâêîôûãõàèìòùÁÉÍÓÚÂÊÎÔÛÃÕÀÈÌÒÙ-",
+      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZçáéíóúâêîôûãõàèìòùÁÉÍÓÚÂÊÎÔÛÃÕÀÈÌÒÙ",
+    numbers: "0123456789",
+    currencies: "Ӿ$₴£؋ƒ₼¥₡₱€Q₹₩₭₮₦₫",
+    japanese:
+      "ーぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ゛゜",
+    specials: "'",
     tags: ["<br>"],
   }),
   computed: {
@@ -52,21 +57,50 @@ export default {
   methods: {
     convert(word) {
       if (!word) return "";
-      let expression = "";
-      let puncts = "";
-      const allow = [...this.alphabet, ...["'"]];
+      let current = "";
+      let counter = 0;
+      let aloc = [];
+      aloc[counter] = "";
+      const allow = [
+        ...this.alphabet,
+        ...this.numbers,
+        ...this.currencies,
+        ...this.japanese,
+        ...this.specials,
+      ];
       const letters = [...word];
       letters.forEach((w) => {
         const inc = allow.includes(w);
-        if (inc) expression += w;
-        else puncts += w;
+        if (inc) {
+          if (current === "puncts") {
+            counter++;
+            aloc[counter] = "";
+          }
+          current = "expression";
+        } else {
+          if (current === "expression") {
+            counter++;
+            aloc[counter] = "";
+          }
+          current = "puncts";
+        }
+        aloc[counter] += w;
       });
-      const length = expression.length;
-      const half = Math.ceil(length / 2);
-      const is3 = length === 3;
-      const first = expression.substring(0, half - (is3 ? 1 : 0));
-      const second = expression.substring(half - (is3 ? 1 : 0));
-      const result = "<strong>" + first + "</strong>" + second + puncts;
+
+      let result = "";
+      aloc.forEach((part) => {
+        const fl = [...part]?.[0];
+        if (allow.includes(fl)) {
+          const length = part.length;
+          const half = Math.ceil(length / 2);
+          const is3 = length === 3;
+          const first = part.substring(0, half - (is3 ? 1 : 0));
+          const second = part.substring(half - (is3 ? 1 : 0));
+          result += "<strong>" + first + "</strong>" + second;
+        } else {
+          result += part;
+        }
+      });
       return result;
     },
   },
