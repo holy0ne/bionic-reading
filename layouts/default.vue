@@ -36,7 +36,7 @@
         <v-col cols="12" sm="auto">
           <span>
             &copy; {{ new Date().getFullYear() }} -
-            <strong>holy.one</strong>
+            <strong>bionic.one</strong>
           </span>
         </v-col>
         <v-spacer />
